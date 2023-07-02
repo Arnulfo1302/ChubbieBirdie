@@ -1,21 +1,29 @@
+//Portafolio barra
 document.addEventListener("DOMContentLoaded", function () {
-  var e,
-    t = document.querySelector(".activador-barra"),
-    a = document.querySelector(".portafolio-barra");
-  t.addEventListener("mouseenter", function () {
-    clearTimeout(e), a.classList.add("barra-activa");
-  }),
-    t.addEventListener("mouseleave", function () {
-      e = setTimeout(function () {
-        a.classList.remove("barra-activa");
-      }, 200);
-    }),
-    a.addEventListener("mouseenter", function () {
-      clearTimeout(e);
-    }),
-    a.addEventListener("mouseleave", function () {
-      e = setTimeout(function () {
-        t.matches(":hover") || a.classList.remove("barra-activa");
-      }, 200);
-    });
+  var activadorBarra = document.querySelector(".activador-barra");
+  var portafolioBarra = document.querySelector(".portafolio-barra");
+  var timeout;
+
+  activadorBarra.addEventListener("mouseenter", function () {
+    clearTimeout(timeout);
+    portafolioBarra.classList.add("barra-activa");
+  });
+
+  activadorBarra.addEventListener("mouseleave", function () {
+    timeout = setTimeout(function () {
+      portafolioBarra.classList.remove("barra-activa");
+    }, 200);
+  });
+
+  portafolioBarra.addEventListener("mouseenter", function () {
+    clearTimeout(timeout);
+  });
+
+  portafolioBarra.addEventListener("mouseleave", function () {
+    timeout = setTimeout(function () {
+      if (!activadorBarra.matches(":hover")) {
+        portafolioBarra.classList.remove("barra-activa");
+      }
+    }, 200);
+  });
 });
