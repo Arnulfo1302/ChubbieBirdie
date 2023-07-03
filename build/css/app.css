@@ -611,6 +611,7 @@ a {
 }
 .foto-galeria {
   max-width: 610px;
+  height: auto;
 }
 @media (max-width: 992px) {
   .foto-galeria {
@@ -680,6 +681,11 @@ a {
 }
 .contenedor-imagen-galeria img {
   width: 100%;
+  height: auto;
+}
+.contenedor-imagen-galeria .recorte-imagen {
+  width: 100%;
+  height: auto;
 }
 .contenedor-imagen-galeria:hover {
   transition: all 0.2s ease-in-out;

@@ -166,8 +166,7 @@ function crearGaleria(filtro) {
     imagen.innerHTML = `
       <div class="contenedor-imagen-galeria">
         <div class="recorte-imagen">
-          <source class="foto-galeria" srcset="${datosImagenes[i].srcw}" type="image/webp" />
-          <img class="foto-galeria" src="${datosImagenes[i].srcp}" alt="Galeria Chubbie" />
+          <img class="foto-galeria" src="${datosImagenes[i].srcw}" alt="Imagen Galeria Chubby" />
           <div class="degradado degra-galeria">
             <div class="contenido-galeria">
               <h4>${datosImagenes[i].fecha}</h4>
