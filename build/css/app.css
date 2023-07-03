@@ -719,3 +719,32 @@ a {
 .portafolio-boton:hover {
   box-shadow: 3px 3px 29px -11px rgba(0, 0, 0, 0.45);
 }
+.seleccion {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 7.5rem;
+}
+.seleccion p {
+  margin: 0%;
+  padding: 0%;
+}
+.seleccion button {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.seleccion button:hover {
+  cursor: pointer;
+}
+.filtro-actual {
+  font-weight: 700;
+  text-decoration: underline;
+}

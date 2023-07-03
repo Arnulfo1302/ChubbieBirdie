@@ -1,3 +1,30 @@
+document.addEventListener("DOMContentLoaded", iniciarApp);
+function iniciarApp() {
+  crearGaleria(filtro);
+  filtroActual(filtro);
+}
+// Filtro Actual
+function filtroActual(filtro) {
+  const galerias = [
+    ".filtro-todas",
+    ".filtro-2023",
+    ".filtro-2022",
+    ".filtro-2021",
+  ];
+  galerias.forEach((galeria) => {
+    const divElement = document.querySelector(galeria);
+    divElement.classList.remove('filtro-actual')
+  });
+  if(filtro == 999){
+    document.querySelector(".filtro-todas").classList.add('filtro-actual');
+  } else if(filtro == 2023){
+    document.querySelector(".filtro-2023").classList.add('filtro-actual');
+  } else if(filtro == 2022){
+    document.querySelector(".filtro-2022").classList.add('filtro-actual');
+  }else if(filtro == 2021){
+    document.querySelector(".filtro-2021").classList.add('filtro-actual');
+  };
+}
 //galeria
 let previousWidth = window.innerWidth;
 
@@ -20,11 +47,28 @@ window.addEventListener("resize", function () {
   }
   previousWidth = currentWidth;
 });
-document.addEventListener("DOMContentLoaded", iniciarApp);
-function iniciarApp() {
-  crearGaleria();
-}
-function crearGaleria() {
+//Filtracion de galerias
+function limpiarGalerias() {
+  const galerias = [
+    ".galeria-arteoriginalA",
+    ".galeria-arteoriginalB",
+    ".galeria-arteoriginalC"
+  ];
+  galerias.forEach((galeria) => {
+    const divElement = document.querySelector(galeria);
+    while (divElement.firstChild) {
+      divElement.removeChild(divElement.firstChild);
+    }
+  });
+};
+let filtro = '999';
+function filtrarGalerias(filtrar){
+limpiarGalerias();
+filtro = String(filtrar);
+crearGaleria(filtro);
+filtroActual(filtro);
+};
+function crearGaleria(filtro) {
   const datosImagenes = [
 //-------------------2023---------------
 /*1*/{ fecha: "2023", descripcion: "", srcw:'./build/img/Comisiones/+1600px/Todas_+1600px/1.webp',srcpwf:'./build/img/Comisiones/+1600px/Todas_+1600px-fullsize/1.webp',srcp:'./build/img/Comisiones/+1600px/Todas_+1600px/1.png',srcpf:'./build/img/Comisiones/+1600px/Todas_+1600px-fullsize/1.png'},
@@ -101,7 +145,13 @@ function crearGaleria() {
         </div>
       </div>
     `;
-    galerias[columna].appendChild(imagen);
+    if(filtro != 999){
+      if(datosImagenes[i].fecha === filtro){
+        galerias[columna].appendChild(imagen);
+      };
+    }else if(filtro == 999){
+      galerias[columna].appendChild(imagen);
+    };
     imagen.onclick = function () {
       mostrarImagen(i + 1);
     };

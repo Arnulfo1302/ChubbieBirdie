@@ -1,3 +1,33 @@
+function iniciarApp() {
+  crearGaleria(filtro);
+  filtroActual(filtro);
+}
+// Filtro Actual
+function filtroActual(filtro) {
+  const galerias = [
+    ".filtro-todas",
+    ".filtro-2023",
+    ".filtro-2022",
+    ".filtro-2021",
+    ".filtro-2020"
+  ];
+  galerias.forEach((galeria) => {
+    const divElement = document.querySelector(galeria);
+    divElement.classList.remove('filtro-actual')
+  });
+  if(filtro == 999){
+    document.querySelector(".filtro-todas").classList.add('filtro-actual');
+  } else if(filtro == 2023){
+    document.querySelector(".filtro-2023").classList.add('filtro-actual');
+  } else if(filtro == 2022){
+    document.querySelector(".filtro-2022").classList.add('filtro-actual');
+  }else if(filtro == 2021){
+    document.querySelector(".filtro-2021").classList.add('filtro-actual');
+  } else if(filtro == 2020){
+    document.querySelector(".filtro-2020").classList.add('filtro-actual');
+  }
+}
+document.addEventListener("DOMContentLoaded", iniciarApp);
 //galeria
 let previousWidth = window.innerWidth;
 
@@ -8,7 +38,7 @@ window.addEventListener("resize", function () {
     (previousWidth <= 1599 &&
       previousWidth >= 665 &&
       currentWidth <= 664 &&
-      currentWidth >= 1) ||
+      currentWidth >= 1) || 
     (previousWidth <= 664 &&
       previousWidth >= 1 &&
       currentWidth <= 1600 &&
@@ -20,11 +50,29 @@ window.addEventListener("resize", function () {
   }
   previousWidth = currentWidth;
 });
-document.addEventListener("DOMContentLoaded", iniciarApp);
-function iniciarApp() {
-  crearGaleria();
-}
-function crearGaleria() {
+//Filtracion de galerias
+function limpiarGalerias() {
+  const galerias = [
+    ".galeria-arteoriginalA",
+    ".galeria-arteoriginalB",
+    ".galeria-arteoriginalC"
+  ];
+  galerias.forEach((galeria) => {
+    const divElement = document.querySelector(galeria);
+    while (divElement.firstChild) {
+      divElement.removeChild(divElement.firstChild);
+    }
+  });
+};
+let filtro = '999';
+function filtrarGalerias(filtrar){
+limpiarGalerias();
+filtro = String(filtrar);
+crearGaleria(filtro);
+filtroActual(filtro);
+};
+// Creacion de galerias
+function crearGaleria(filtro) {
   const datosImagenes = [
   
 //-------------------2023---------------
@@ -111,7 +159,6 @@ function crearGaleria() {
   }
   const totalFotos = parseInt(datosImagenes.length);
   const columnas = galerias.length;
-  
   for (let i = 0; i < totalFotos; i++) {
     const fila = Math.floor(i / columnas);
     const columna = i % columnas;
@@ -130,7 +177,13 @@ function crearGaleria() {
         </div>
       </div>
     `;
-    galerias[columna].appendChild(imagen);
+    if(filtro != 999){
+      if(datosImagenes[i].fecha === filtro){
+        galerias[columna].appendChild(imagen);
+      };
+    }else if(filtro == 999){
+      galerias[columna].appendChild(imagen);
+    };
     imagen.onclick = function () {
       mostrarImagen(i + 1);
     };
