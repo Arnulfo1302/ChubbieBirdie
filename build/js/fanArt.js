@@ -74,6 +74,7 @@ filtroActual(filtro);
 function crearGaleria(filtro) {
   const datosImagenes = [
 //-------------------2023---------------
+/*27*/{ fecha: "2023", descripcion: "", srcw:'./build/img/Fan_Art/+1600px/Todas_+1600px/27.webp',srcpwf:'./build/img/Fan_Art/+1600px/Todas_+1600px-fullsize/27.webp',srcp:'./build/img/Fan_Art/+1600px/Todas_+1600px/27.png',srcpf:'./build/img/Fan_Art/+1600px/Todas_+1600px-fullsize/27.png'},
 /*1*/{ fecha: "2023", descripcion: "", srcw:'./build/img/Fan_Art/+1600px/Todas_+1600px/1.webp',srcpwf:'./build/img/Fan_Art/+1600px/Todas_+1600px-fullsize/1.webp',srcp:'./build/img/Fan_Art/+1600px/Todas_+1600px/1.png',srcpf:'./build/img/Fan_Art/+1600px/Todas_+1600px-fullsize/1.png'},
 /*2*/{ fecha: "2023", descripcion: "", srcw:'./build/img/Fan_Art/+1600px/Todas_+1600px/2.webp',srcpwf:'./build/img/Fan_Art/+1600px/Todas_+1600px-fullsize/2.webp',srcp:'./build/img/Fan_Art/+1600px/Todas_+1600px/2.png',srcpf:'./build/img/Fan_Art/+1600px/Todas_+1600px-fullsize/2.png'},
 /*3*/{ fecha: "2023", descripcion: "", srcw:'./build/img/Fan_Art/+1600px/Todas_+1600px/3.webp',srcpwf:'./build/img/Fan_Art/+1600px/Todas_+1600px-fullsize/3.webp',srcp:'./build/img/Fan_Art/+1600px/Todas_+1600px/3.png',srcpf:'./build/img/Fan_Art/+1600px/Todas_+1600px-fullsize/3.png'},
