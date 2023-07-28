@@ -13,6 +13,9 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
+.contenedor-header{
+  margin-top: 1rem;
+}
 hr {
   box-sizing: content-box;
   height: 0;
@@ -289,7 +292,7 @@ a {
   gap: 0.8rem;
   justify-content: center;
   margin-left: 0;
-  margin-top: 1.4rem;
+  margin-top: 2.4rem;
 }
 @media (max-width: 480px) {
   .imagen-nombre {
@@ -316,6 +319,10 @@ a {
   height: auto;
   padding: 0.5rem;
   width: 7rem;
+  margin-top: 1rem;
+}
+imagen img{
+  justify-content: center;
 }
 @media (max-width: 480px) {
   .imagen {
